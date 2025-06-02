@@ -1,4 +1,4 @@
-export const errorHandler = (error, req, res, next) => {
+export default function errorHandler(error, req, res, next){
   console.error(error);
   if (error?.type === "entity.parse.failed" && error.message.includes("JSON")) {
     return res.status(500).json({
