@@ -15,10 +15,10 @@ const port = process.env.PORT || 3000
 app.use(cors())
 app.use(express.json())
 
-app.get("/", welcomeController)
-app.use("/api/livros", livroRoutes)
-app.use("/api/usuarios", usuarioRoutes)
-app.use("/api/emprestimos", emprestimoRoutes)
+app.get("/", welcomeController) //controller que é chamado quando o usuario da api entra na raiz dos endpoitns
+app.use("/api/livros", livroRoutes)// crud dos livros
+app.use("/api/usuarios", usuarioRoutes)//crid dos usuarios da biblioteca
+app.use("/api/emprestimos", emprestimoRoutes)//crud do relacionamento
 
 app.use("*", notFoundController)
 app.use(errorsHandler)

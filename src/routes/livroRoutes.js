@@ -1,24 +1,19 @@
-import express from "express";
+import express from "express"
+import createLivroController from "../controllers/livros/createLivroController.js"
+import deleteLivroController from "../controllers/livros/deleteLivroController.js"
+import exportLivrosCsvController from "../controllers/livros/exportLivrosCsvController.js"
+import getLivroController from "../controllers/livros/getLivroController.js"
+import listLivrosController from "../controllers/livros/listLivrosController.js"
+import updateLivroController from "../controllers/livros/updateLivroController.js"
 
-import createLivroController from "../controllers/livros/createLivroController.js";
+const router = express.Router()
 
-import updateLivroController from "../controllers/livros/updateLivroController.js";
+router.get("/", listLivrosController)                   //listar os livros existentes no banco
+router.post("/", createLivroController)                 //adcionar um livro a biblio
+router.get("/:id", getLivroController)                  //buscar um livro pelo id
+router.put("/:id", updateLivroController)               //atualizar um livro pelo id
+router.delete("/:id", deleteLivroController)            //deletar um livro pelo id
 
-import deleteLivroController from "../controllers/livros/deleteLivroController.js";
+router.get("/export/csv", exportLivrosCsvController)    //função adicional para exportar livros em csv
 
-import getLivroController from "../controllers/livros/getLivroController.js";
-
-import listLivrosController from "../controllers/livros/listLivrosController.js";
-
-import exportLivrosCsvController from "../controllers/livros/exportLivrosCsvController.js";
-
-const router = express.Router();
-
-router.get("/", listLivrosController);
-router.post("/", createLivroController);
-router.get("/:id", getLivroController);
-router.put("/:id", updateLivroController);
-router.delete("/:id", deleteLivroController);
-router.get("/export/csv", exportLivrosCsvController);
-
-export default router;
+export default router
