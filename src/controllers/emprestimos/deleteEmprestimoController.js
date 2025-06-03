@@ -1,11 +1,40 @@
-import { deletarEmprestimo } from "../../models/emprestimoModel.js";
+import { deletarEmprestimo } from "../../models/emprestimoModel"
+import { emprestimoValidator } from "../../schemas/emprestimoSchema"
 
 export default async function deleteEmprestimoController(req, res, next) {
   try {
-    const id = parseInt(req.params.id, 10);
-    await deletarEmprestimo(id);
-    res.sendStatus(204);
-  } catch (err) {
-    next(err);
+    const { id } = req.params
+    const emprestimo = { id: +id }
+    const { success, error, data } = emprestimoValidator(emprestimo, partial = { usuarioId: true, livroId: true, dataRetirada: true})
+
+    if (!success) {
+      return res.status(400).json({
+        message: "Erro ao deletar empréstimo, verifique os dados!",
+        errors: error.flatten().fieldErrors,
+      })
+    }
+
+    const result = await deletarEmprestimo(data.id)
+
+    if (!result) {
+      return res.status(404).json({
+        message: "Empréstimo não encontrado!",
+      })
+    }
+
+    return res.json({
+      message: `Empréstimo ID ${id} excluído com sucesso!`,
+      emprestimo: result,
+    })
+  } catch (error) {
+    if (
+      error?.code === "P2025" &&
+      error?.meta?.cause?.includes("Record to delete does not exist")
+    ) {
+      return res.status(404).json({
+        message: "Empréstimo não encontrado!",
+      })
+    }
+    next(error)
   }
 }
