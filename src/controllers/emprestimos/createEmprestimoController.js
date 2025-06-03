@@ -8,7 +8,7 @@ export default async function createEmprestimoController(req, res, next) {
       success,
       error,
       data: emprestimoValidado,
-    } = emprestimoValidator(dados, partial = { id: true })
+    } = emprestimoValidator(dados, { id: true })
     if (!success) {
       return res.status(400).json({
         message: "Erro ao registrar empréstimo, verifique os dados!",

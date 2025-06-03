@@ -4,7 +4,7 @@ import { livroValidator } from "../../schemas/livroSchema.js"
 export default async function createLivroController(req, res, next) {
   try {
     const dados = req.body
-    const { success, error, data: livroValidado } = livroValidator(dados, partial = {id: true})
+    const { success, error, data: livroValidado } = livroValidator(dados, {id: true})
     if (!success) {
       return res.status(400).json({
         message: "Erro ao cadastrar livro, verifique os dados!",

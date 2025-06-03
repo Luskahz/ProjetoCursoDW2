@@ -11,8 +11,8 @@ export const livroSchema = z.object({
 
 export const livroValidator = (livro, partial = null) => {
     if(partial){
-        return livroSchema.partial(partial).safeParse(emprestimo)
+        return livroSchema.partial(partial).safeParse(livro)
     }
-    return livroSchema.safeParse(emprestimo)
+    return livroSchema.safeParse(livro)
   }
   

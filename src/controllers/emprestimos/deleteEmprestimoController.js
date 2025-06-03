@@ -5,7 +5,7 @@ export default async function deleteEmprestimoController(req, res, next) {
   try {
     const { id } = req.params
     const emprestimo = { id: +id }
-    const { success, error, data } = emprestimoValidator(emprestimo, partial = { usuarioId: true, livroId: true, dataRetirada: true})
+    const { success, error, data } = emprestimoValidator(emprestimo, { usuarioId: true, livroId: true, dataRetirada: true})
 
     if (!success) {
       return res.status(400).json({

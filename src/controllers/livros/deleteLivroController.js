@@ -7,7 +7,7 @@ export default async function deleteLivroController(req, res, next) {
     const livro = { id: +id }
     const { success, error, data } = livroValidator(
       livro,
-      (partial = {
+      ({
         titulo: true,
         autor: true,
         ano: true
