@@ -23,6 +23,10 @@ app.use("/api/emprestimos", emprestimoRoutes)//crud do relacionamento
 app.use("*", notFoundController)
 app.use(errorsHandler)
 
+app.get("/", (req, res) => {
+  res.sendFile(path.join(__dirname, "../frontend.html"));
+});
+
 app.listen(port, () => {
     console.log(`\n\nServidor rodando em http://localhost:${port}`)
 })

@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API Biblioteca</title>
+    <link rel="stylesheet" href="css.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>API Biblioteca</h1>
+      <p>Utilize os formulários abaixo para testar todas as rotas da API.</p>
+
+      <div class="section" id="usuarios-section">
+        <h2>Usuários</h2>
+        <div class="flex-row">
+          <form id="create-usuario-form">
+            <label>Nome: <input name="nome" required /></label>
+            <label>Email: <input name="email" type="email" required /></label>
+            <label>Senha: <input name="senha" type="password" required /></label>
+            <button type="submit">Criar Usuário</button>
+          </form>
+          <div class="response" id="usuarios-create-response"></div>
+
+          <form id="update-usuario-form">
+            <label>ID: <input name="id" type="number" required /></label>
+            <label>Nome: <input name="nome" /></label>
+            <label>Email: <input name="email" type="email" /></label>
+            <label>Senha: <input name="senha" type="password" /></label>
+            <button type="submit">Atualizar Usuário</button>
+          </form>
+          <div class="response" id="usuarios-update-response"></div>
+
+        </div>
+        <div class="flex-row">
+          <form id="delete-usuario-form">
+            <label>ID: <input name="id" type="number" required /></label>
+            <button type="submit">Deletar Usuário</button>
+          </form>
+          <div class="response" id="usuarios-delete-response"></div>
+
+          <form id="get-usuario-form">
+            <label>ID: <input name="id" type="number" required /></label>
+            <button type="submit">Buscar Usuário</button>
+          </form>
+          <div class="response" id="usuarios-get-response"></div>
+
+        </div>
+        <div class="actions">
+          <button onclick="listarUsuarios()">Listar Todos</button>
+          <button onclick="exportarUsuariosCsv()">Exportar CSV</button>
+        </div>
+        <div class="response" id="usuarios-list-response"></div>
+
+      </div>
+
+      <hr />
+
+      <div class="section" id="livros-section">
+        <h2>Livros</h2>
+        <div class="flex-row">
+          <form id="create-livro-form">
+            <label>Título: <input name="titulo" required /></label>
+            <label>Autor: <input name="autor" required /></label>
+            <label>Ano: <input name="ano" type="number" required /></label>
+            <button type="submit">Criar Livro</button>
+          </form>
+          <div class="response" id="livros-create-response"></div>
+
+          <form id="update-livro-form">
+            <label>ID: <input name="id" type="number" required /></label>
+            <label>Título: <input name="titulo" /></label>
+            <label>Autor: <input name="autor" /></label>
+            <label>Ano: <input name="ano" type="number" /></label>
+            <button type="submit">Atualizar Livro</button>
+          </form>
+          <div class="response" id="livros-update-response"></div>
+
+        </div>
+        <div class="flex-row">
+          <form id="delete-livro-form">
+            <label>ID: <input name="id" type="number" required /></label>
+            <button type="submit">Deletar Livro</button>
+          </form>
+          <div class="response" id="livros-delete-response"></div>
+
+          <form id="get-livro-form">
+            <label>ID: <input name="id" type="number" required /></label>
+            <button type="submit">Buscar Livro</button>
+          </form>
+          <div class="response" id="livros-get-response"></div>
+
+        </div>
+        <div class="actions">
+          <button onclick="listarLivros()">Listar Todos</button>
+          <button onclick="exportarLivrosCsv()">Exportar CSV</button>
+        </div>
+        <div class="response" id="livros-list-response"></div>
+
+      </div>
+
+      <hr />
+
+      <div class="section" id="emprestimos-section">
+        <h2>Empréstimos</h2>
+        <div class="flex-row">
+          <form id="create-emprestimo-form">
+            <label>ID Usuário: <input name="usuarioId" type="number" required /></label>
+            <label>ID Livro: <input name="livroId" type="number" required /></label>
+            <label>Data Retirada: <input name="dataRetirada" type="datetime-local" id="dataRetirada" required /></label>
+            <button type="submit">Criar Empréstimo</button>
+          </form>
+          <div class="response" id="emprestimos-create-response"></div>
+
+          <form id="update-emprestimo-form">
+            <label>ID: <input name="id" type="number" required /></label>
+            <label>ID Usuário: <input name="usuarioId" type="number" /></label>
+            <label>ID Livro: <input name="livroId" type="number" /></label>
+            <label>Data Retirada: <input name="dataRetirada" type="datetime-local" /></label>
+            <label>Data Devolução: <input name="dataDevolucao" type="datetime-local" /></label>
+            <button type="submit">Atualizar Empréstimo</button>
+          </form>
+          <div class="response" id="emprestimos-update-response"></div>
+
+        </div>
+        <div class="flex-row">
+          <form id="delete-emprestimo-form">
+            <label>ID: <input name="id" type="number" required /></label>
+            <button type="submit">Deletar Empréstimo</button>
+          </form>
+          <div class="response" id="emprestimos-delete-response"></div>
+
+          <form id="get-emprestimo-form">
+            <label>ID: <input name="id" type="number" required /></label>
+            <button type="submit">Buscar Empréstimo</button>
+          </form>
+          <div class="response" id="emprestimos-get-response"></div>
+
+        </div>
+        <div class="actions">
+          <button onclick="listarEmprestimos()">Listar Todos</button>
+          <button onclick="exportarEmprestimosCsv()">Exportar CSV</button>
+        </div>
+        <div class="response" id="emprestimos-list-response"></div>
+      </div>
+    </div>
+    <script src="main.js"></script>
+  </body>
+</html>

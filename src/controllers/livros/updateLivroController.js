@@ -4,7 +4,8 @@ import { livroValidator } from "../../schemas/livroSchema.js"
 export default async function updateLivroController(req, res, next) {
   try {
     const id = parseInt(req.params.id, 10)// espero o livro como parametro
-    const parsed = livroValidator(req.body)// e espero ele no body tbm 
+    const livroParaValidar = { ...req.body, id } // adiciono o id ao body para validação
+    const parsed = livroValidator(livroParaValidar) 
     if (!parsed.success) {
       return res.status(400).json({
         message: "Erro ao atualizar livro, verifique os dados!",

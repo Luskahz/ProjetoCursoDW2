@@ -4,11 +4,10 @@ import { emprestimoValidator } from "../../schemas/emprestimoSchema.js";
 export default async function getEmprestimoController(req, res, next) {
   try {
     const id = parseInt(req.params.id, 10);
-    const { success, error } = emprestimoValidator(id, {
-      usuarioId: true,
-      livroId: true,
-      dataRetirada: true,
-    });
+    const { success, error } = emprestimoValidator(
+      { id }, // passa como objeto!
+      { usuarioId: true, livroId: true, dataRetirada: true, dataDevolucao: true }
+    );
     if (!success) {
       return res.status(400).json({
         message: "Erro ao obter imprestimo, id invalido!",

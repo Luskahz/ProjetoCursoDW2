@@ -1,13 +1,26 @@
 import { z } from "zod";
 
 export const emprestimoSchema = z.object({
-  id: z.number().int().min(1),
-  usuarioId: z.number().int(),
-  livroId: z.number().int(),
-  dataRetirada: z.string().datetime(),
-  dataDevolucao: z.string().datetime().optional(),// olá renan, aqui ficou optional pois na hora de cadastrar um imprestimo não necessariamente eu cadastro a data da devolução, faço um patch depois para devolver o livro
+  id: z.number({
+    required_error: "O campo 'id' é obrigatório.",
+    invalid_type_error: "O campo 'id' deve ser um número inteiro."
+  }).int().min(1, { message: "O campo 'id' deve ser maior que zero." }),
+  usuarioId: z.number({
+    required_error: "O campo 'usuarioId' é obrigatório.",
+    invalid_type_error: "O campo 'usuarioId' deve ser um número inteiro."
+  }).int(),
+  livroId: z.number({
+    required_error: "O campo 'livroId' é obrigatório.",
+    invalid_type_error: "O campo 'livroId' deve ser um número inteiro."
+  }).int(),
+  dataRetirada: z.string({
+    required_error: "O campo 'dataRetirada' é obrigatório.",
+    invalid_type_error: "O campo 'dataRetirada' deve ser uma string no formato datetime."
+  }).datetime({ message: "O campo 'dataRetirada' deve estar em formato datetime ISO válido." }),
+  dataDevolucao: z.string({
+    invalid_type_error: "O campo 'dataDevolucao' deve ser uma string no formato datetime."
+  }).datetime({ message: "O campo 'dataDevolucao' deve estar em formato datetime ISO válido." }).optional(),
 });
-
 
 export const emprestimoValidator = (emprestimo, partial = null) => {
     if(partial){

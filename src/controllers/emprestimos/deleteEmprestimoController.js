@@ -1,5 +1,5 @@
-import { deletarEmprestimo } from "../../models/emprestimoModel"
-import { emprestimoValidator } from "../../schemas/emprestimoSchema"
+import { deletarEmprestimo } from "../../models/emprestimoModel.js"
+import { emprestimoValidator } from "../../schemas/emprestimoSchema.js"
 
 export default async function deleteEmprestimoController(req, res, next) {
   try {

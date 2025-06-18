@@ -4,7 +4,8 @@ import { usuarioValidator } from "../../schemas/usuarioSchema.js";
 export default async function updateUsuarioController(req, res, next) {
   try {
     const id = parseInt(req.params.id, 10);
-    const parsed = usuarioValidator(req.body);
+    const usuarioParaValidar = { ...req.body, id };
+    const parsed = usuarioValidator(usuarioParaValidar);
     if (!parsed.success) {
       return res.status(400).json({
         message: "Erro ao atualizar usuário, verifique os dados!",
