@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Empréstimos - API Biblioteca</title>
+    <link rel="stylesheet" href="css.css" />
+  </head>
+  <body>
+    <div class="container">
+      <nav class="actions" style="margin-bottom: 24px">
+        <a href="usuarios.html">Usuários</a>
+        <a href="livros.html">Livros</a>
+        <a href="emprestimos.html">Empréstimos</a>
+        <a href="visualizacao.html">Visualização</a>
+      </nav>
+      <h1>Empréstimos</h1>
+      <div class="section" id="emprestimos-section">
+        <form id="create-emprestimo-form">
+          <label
+            >ID Usuário: <input name="usuarioId" type="number" required
+          /></label>
+          <label
+            >ID Livro: <input name="livroId" type="number" required
+          /></label>
+          <label
+            >Data Retirada:
+            <input name="dataRetirada" type="datetime-local" required
+          /></label>
+          <button type="submit">Criar Empréstimo</button>
+        </form>
+
+        <form id="update-emprestimo-form">
+          <label>ID: <input name="id" type="number" required /></label>
+          <label>ID Usuário: <input name="usuarioId" type="number" /></label>
+          <label>ID Livro: <input name="livroId" type="number" /></label>
+          <label
+            >Data Retirada: <input name="dataRetirada" type="datetime-local"
+          /></label>
+          <label
+            >Data Devolução: <input name="dataDevolucao" type="datetime-local"
+          /></label>
+          <button type="submit">Atualizar Empréstimo</button>
+        </form>
+
+        <form
+          id="delete-emprestimo-form"
+          style="
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            flex-direction: row;
+          "
+        >
+          <div style="flex: 1">
+            <label>ID: <input name="id" type="number" required /></label>
+            <button type="submit">Deletar Empréstimo</button>
+          </div>
+          <div
+            id="emprestimo-deletado-card"
+            class="bloco-item"
+            style="display: none"
+          ></div>
+        </form>
+
+        <form
+          id="get-emprestimo-form"
+          style="
+            display: flex;
+            align-items: flex-start;
+            gap: 18px;
+            flex-direction: row;
+          "
+        >
+          <div style="flex: 1">
+            <label>ID: <input name="id" type="number" required /></label>
+            <button type="submit">Buscar Empréstimo</button>
+          </div>
+          <div
+            id="emprestimo-buscado-card"
+            class="bloco-item"
+            style="display: none"
+          ></div>
+        </form>
+      </div>
+    </div>
+
+    <div id="popup-message" class="popup-message" style="display: none"></div>
+    <script type="module" src="main-emprestimos.js"></script>
+  </body>
+</html>

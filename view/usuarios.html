@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Usuários - API Biblioteca</title>
+    <link rel="stylesheet" href="css.css" />
+  </head>
+  <body>
+    <div class="container">
+      <nav class="actions" style="margin-bottom: 24px">
+        <a href="usuarios.html">Usuários</a>
+        <a href="livros.html">Livros</a>
+        <a href="emprestimos.html">Empréstimos</a>
+        <a href="visualizacao.html">Visualização</a>
+      </nav>
+      <h1>Usuários</h1>
+      <div class="section" id="usuarios-section">
+        <form id="create-usuario-form">
+          <label>Nome: <input name="nome" required /></label>
+          <label>Email: <input name="email" type="email" required /></label>
+          <label>Senha: <input name="senha" type="password" required /></label>
+          <button type="submit">Criar Usuário</button>
+        </form>
+
+        <form id="update-usuario-form">
+          <label>ID: <input name="id" type="number" required /></label>
+          <label>Nome: <input name="nome" /></label>
+          <label>Email: <input name="email" type="email" /></label>
+          <label>Senha: <input name="senha" type="password" /></label>
+          <button type="submit">Atualizar Usuário</button>
+        </form>
+
+        <form id="delete-usuario-form"
+          style="display: flex; align-items: flex-start; gap: 18px; flex-direction: row;"
+        >
+          <div style="flex: 1">
+            <label>ID: <input name="id" type="number" required /></label>
+            <button type="submit">Deletar Usuário</button>
+          </div>
+          <div
+            id="usuario-deletado-card"
+            class="bloco-item"
+            style="display: none"
+          ></div>
+        </form>
+
+        <form id="get-usuario-form"
+          style="display: flex; align-items: flex-start; gap: 18px; flex-direction: row;"
+        >
+          <div style="flex: 1">
+            <label>ID: <input name="id" type="number" required /></label>
+            <button type="submit">Buscar Usuário</button>
+          </div>
+          <div
+            id="usuario-buscado-card"
+            class="bloco-item"
+            style="display: none"
+          ></div>
+        </form>
+      </div>
+    </div>
+    <div id="popup-message" class="popup-message" style="display: none"></div>
+    <script type="module" src="main-usuarios.js"></script>
+  </body>
+</html>

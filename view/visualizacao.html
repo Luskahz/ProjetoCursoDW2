@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Visualização - API Biblioteca</title>
+    <link rel="stylesheet" href="css.css" />
+  </head>
+  <body>
+    <div class="container">
+      <nav class="actions" style="margin-bottom: 24px">
+        <a href="usuarios.html">Usuários</a>
+        <a href="livros.html">Livros</a>
+        <a href="emprestimos.html">Empréstimos</a>
+        <a href="visualizacao.html">Visualização</a>
+      </nav>
+      <h1>Visualização Geral</h1>
+      <div class="section">
+        <div class="blocos-lista" id="usuarios-bloco">
+          <h2>Usuários</h2>
+          <div id="usuarios-lista"></div>
+        </div>
+        <div class="blocos-lista" id="livros-bloco">
+          <h2>Livros</h2>
+          <div id="livros-lista"></div>
+        </div>
+        <div class="blocos-lista" id="emprestimos-bloco">
+          <h2>Empréstimos</h2>
+          <div id="emprestimos-lista"></div>
+        </div>
+      </div>
+    </div>
+    <div id="popup-message" class="popup-message" style="display: none"></div>
+    <script type="module" src="main-visualizacao.js"></script>
+  </body>
+</html>

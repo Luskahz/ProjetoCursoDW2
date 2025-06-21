@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Livros - API Biblioteca</title>
+    <link rel="stylesheet" href="css.css" />
+  </head>
+  <body>
+    <div class="container">
+      <nav class="actions" style="margin-bottom: 24px">
+        <a href="usuarios.html">Usuários</a>
+        <a href="livros.html">Livros</a>
+        <a href="emprestimos.html">Empréstimos</a>
+        <a href="visualizacao.html">Visualização</a>
+      </nav>
+      <h1>Livros</h1>
+      <div class="section" id="livros-section">
+        <form id="create-livro-form">
+          <label>Título: <input name="titulo" required /></label>
+          <label>Autor: <input name="autor" required /></label>
+          <label>Ano: <input name="ano" type="number" required /></label>
+          <button type="submit">Criar Livro</button>
+        </form>
+
+        <form id="update-livro-form">
+          <label>ID: <input name="id" type="number" required /></label>
+          <label>Título: <input name="titulo" /></label>
+          <label>Autor: <input name="autor" /></label>
+          <label>Ano: <input name="ano" type="number" /></label>
+          <button type="submit">Atualizar Livro</button>
+        </form>
+
+        <form id="delete-livro-form">
+          <label>ID: <input name="id" type="number" required /></label>
+          <button type="submit">Deletar Livro</button>
+        </form>
+
+        <form id="get-livro-form">
+          <label>ID: <input name="id" type="number" required /></label>
+          <button type="submit">Buscar Livro</button>
+        </form>
+      </div>
+    </div>
+    <div
+          id="popup-message"
+          class="popup-message"
+          style="display: none"
+        ></div>
+    <script type="module" src="main-livros.js"></script>
+  </body>
+</html>
